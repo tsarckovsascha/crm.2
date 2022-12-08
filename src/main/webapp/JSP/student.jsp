@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,15 +22,15 @@
 </div>
 <hr>
 <div class="navigation-box">
-    <a href="home.jsp" class="gradient-button">Главная</a>
-    <a href="student.jsp" class="gradient-button">Студенты</a>
-    <a href="disciplins.jsp" class="gradient-button">Дисциплины</a>
-    <a href="term.jsp" class="gradient-button">Семестры</a>
+    <a href="/home" class="gradient-button">Главная</a>
+    <a href="/student" class="gradient-button">Студенты</a>
+    <a href="/disciplins" class="gradient-button">Дисциплины</a>
+    <a href="/term" class="gradient-button">Семестры</a>
     <a href="" class="gradient-button">Контакты</a>
 </div>
 <div class="content-box">
     <a href="studentProgress.html" class="action-button">Посмотреть успеваемость</a>
-    <a href="studentCreating.html" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"
+    <a href="/studentCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"
                                                               width="18px" alt="">Добавить нового студента</a>
     <table class="students-table">
         <tr>
@@ -50,7 +51,8 @@
             <td>${s.group}</td>
             <td>+7 (906) 325 74 39</td>
             <td>muhr@1ccl.ru</td>
-            <td>23.11.2022</td>
+            <td><fmt:formatDate pattern="dd/MM/yyyy" value="${s.datr_enter}" />
+            </td>
             <td display="inline">
                 <a class="editing-box-button" href=""><img src="../resources/img/pencil.png" width="18px" alt=""></a>
                 <a class="trashing-box-button" href=""><img src="../resources/img/trash.png" width="18px"

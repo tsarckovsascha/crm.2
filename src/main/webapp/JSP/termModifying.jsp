@@ -1,5 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,15 +26,36 @@
   <a href="" class="gradient-button">Контакты</a>
 </div>
 <div class="content-box">
-  <h3>Редактирование дисциплины</h3>
-  <div display="inline">
-    <b>Наименование:</b>
-    <input type="text" name="range" id="1" size="34">
+  <h1>Редактирование семестра</h1>
+  <div class="grade-box">
+    <div display="inline">
+      <b>Длительность (недели):</b>
+      <input type="number" name="range" id="0" size="3">
+    </div>
   </div>
-  <div display="inline">
-    <b>Длительность (семестров):</b>
-    <input type="number" name="range" id="2" size="2">
-  </div>
+  <h3>Список дисциплин семестра</h3>
+  <table>
+    <tr>
+      <td><input type="checkbox" name="selectStudent" id="0"></td>
+      <td>Информатика</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="selectStudent" id="1"></td>
+      <td>Системный анализ</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="selectStudent" id="2"></td>
+      <td>Математический анализ</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="selectStudent" id="3"></td>
+      <td>Приближенное исчисление</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="selectStudent" id="4"></td>
+      <td>Дифференциальные уравнения</td>
+    </tr>
+  </table>
   <a href="" class="gradient-button">Сохранить</a>
 </div>
 <footer>

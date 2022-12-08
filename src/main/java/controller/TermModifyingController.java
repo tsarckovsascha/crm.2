@@ -5,13 +5,13 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "DisciplineCreatingController", value = "/disciplineCreating")
-public class DisciplineCreatingController extends HttpServlet {
+@WebServlet(name = "TermModifyingController", value = "/termModifying")
+public class TermModifyingController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getRequestDispatcher("JSP/disciplineCreating.jsp").forward(request,response);
-
+        request.getRequestDispatcher("JSP/termModifying.jsp").forward(request,response);
     }
+
 
 }

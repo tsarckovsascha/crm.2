@@ -21,14 +21,18 @@
 </div>
 <hr>
 <div class="navigation-box">
-  <a href="home.jsp" class="gradient-button">Главная</a>
-  <a href="student.jsp" class="gradient-button">Студенты</a>
-  <a href="disciplins.jsp" class="gradient-button">Дисциплины</a>
-  <a href="term.jsp" class="gradient-button">Семестры</a>
+  <a href="/home" class="gradient-button">Главная</a>
+  <a href="/student" class="gradient-button">Студенты</a>
+  <a href="/disciplins" class="gradient-button">Дисциплины</a>
+  <a href="/term" class="gradient-button">Семестры</a>
   <a href="" class="gradient-button">Контакты</a>
 </div>
 <div class="content-box">
-  <a href="disciplineCreating.html" class="action-button"><img class="prefix-button" src="../resources/img/trash.png"  width="18px" alt="">Создать дисциплину</a>
+  <a href="/disciplineCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Создать дисциплину</a>
+</div>
+<div class="content-box">
+  <a href="/disciplineModifying" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Редактировать дисциплину</a>
+</div>
   <h3>Список дисциплин</h3>
   <table>
     <tr>

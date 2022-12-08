@@ -1,5 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,7 +18,6 @@
     </div>
 </div>
 <hr>
-
 <div class="navigation-box">
     <a href="/home" class="gradient-button">Главная</a>
     <a href="/student" class="gradient-button">Студенты</a>
@@ -29,18 +26,37 @@
     <a href="" class="gradient-button">Контакты</a>
 </div>
 <div class="content-box">
-    <h3>Новое объявление</h3>
-    <div display="inline">
-        <b>Заголовок:</b>
-        <br>
-        <input type="text" name="name" id="0" size="34">
+    <h1>Создание семестра</h1>
+    <div class="grade-box">
+        <div display="inline">
+            <b>Длительность (недели):</b>
+            <input type="number" name="range" id="0" size="3">
+        </div>
     </div>
-    <p>
-        <b>Содержание</b>
-        <br>
-        <textarea name="comment" cols="40" rows="3"></textarea>
-    </p>
-    <a href="/home" class="gradient-button">Сохранить</a>
+    <h3>Список дисциплин семестра</h3>
+    <table>
+        <tr>
+            <td><input type="checkbox" name="selectStudent" id="0"></td>
+            <td>Информатика</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="selectStudent" id="1"></td>
+            <td>Системный анализ</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="selectStudent" id="2"></td>
+            <td>Математический анализ</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="selectStudent" id="3"></td>
+            <td>Приближенное исчисление</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="selectStudent" id="4"></td>
+            <td>Дифференциальные уравнения</td>
+        </tr>
+    </table>
+    <a href="" class="gradient-button">Сохранить</a>
 </div>
 <footer>
     Created by Rushan Mukharlyamov &copy 2022

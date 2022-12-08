@@ -22,14 +22,14 @@
 </div>
 <hr>
 <div class="navigation-box">
-    <a href="home.jsp" class="gradient-button">Главная</a>
-    <a href="student.jsp" class="gradient-button">Студенты</a>
-    <a href="disciplins.jsp" class="gradient-button">Дисциплины</a>
-    <a href="term.jsp" class="gradient-button">Семестры</a>
+    <a href="/home" class="gradient-button">Главная</a>
+    <a href="/student" class="gradient-button">Студенты</a>
+    <a href="/disciplins" class="gradient-button">Дисциплины</a>
+    <a href="/term" class="gradient-button">Семестры</a>
     <a href="" class="gradient-button">Контакты</a>
 </div>
 <div class="grade-box">
-    <a href="newsCreating.html" class="action-button" ><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Добавить объявление</a>
+    <a href="/newsCreating" class="action-button" ><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Добавить объявление</a>
 </div>
 <div class="content-box">
     <div class="inline-box">
