@@ -29,11 +29,11 @@
 </div>
 <div class="content-box">
     <h1>Добавление нового студента</h1>
-    <form action="/studentCreating" method="post">
+    <form action="/studentCreating" method="post" >
         <table>
             <tr>
                 <td>Имя</td>
-                <td><input width="200px" type="text" name="firstName" id="0"></td>
+                <td><input width = "200px" type="text" name="firstName" id="0"> </td>
             </tr>
             <tr>
                 <td>Фамилия</td>

@@ -13,7 +13,7 @@
 <body>
 <div class="title-box">
     <div class="title-item">
-        <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+        <h1>СИСТЕМА УПРАВЛЕНИЯ Студантами И ИХ УСПЕВАЕМОСТЬЮ</h1>
     </div>
     <div class="title-login">
         <a href="" class="gradient-button-leftside">Войти</a>

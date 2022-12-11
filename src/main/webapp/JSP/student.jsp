@@ -9,6 +9,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../resources/styeles/style.css">
+
+
 </head>
 <body>
 <div class="title-box">
@@ -29,28 +31,28 @@
     <a href="" class="gradient-button">Контакты</a>
 </div>
 <div class="content-box">
-    <a href="studentProgress.html" class="action-button">Посмотреть успеваемость</a>
+    <a href="/studentProgress" class="action-button">Посмотреть успеваемость</a>
     <a href="/studentCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"
-                                                              width="18px" alt="">Добавить нового студента</a>
+                                                          width="18px" alt="">Добавить нового студента</a>
+    <a  class="action-button" onclick=""><img class="prefix-button" src="../resources/img/trash.png"
+                                                              width="18px" alt="">Удалить студента</a>
     <table class="students-table">
         <tr>
+            <th></th>
             <th>Фамилия</th>
             <th>Имя</th>
-            <th>Отчество</th>
             <th>Группа</th>
-            <th>Номер</th>
-            <th>E-mail</th>
             <th>Дата поступления</th>
             <th></th>
         </tr>
 <c:forEach items="${allStudent}" var="s">
         <tr>
+            <th>
+            <input type="checkbox" value="${s.id}" id="idS">
+            </th>
             <td>${s.surname}</td>
             <td>${s.name}</td>
-            <td>Ринатович</td>
             <td>${s.group}</td>
-            <td>+7 (906) 325 74 39</td>
-            <td>muhr@1ccl.ru</td>
             <td><fmt:formatDate pattern="dd/MM/yyyy" value="${s.datr_enter}" />
             </td>
             <td display="inline">
@@ -62,6 +64,9 @@
 </c:forEach>
     </table>
 </div>
+<form action="/daletStudent" method="post" id="daletStudent">
+    <input type="hidden" id="idStudent" >
+</form>
 <footer>
     Created by Rushan Mukharlyamov &copy 2022
 </footer>

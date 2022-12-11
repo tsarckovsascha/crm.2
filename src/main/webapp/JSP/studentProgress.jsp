@@ -28,37 +28,68 @@
   <a href="" class="gradient-button">Контакты</a>
 </div>
 <div class="content-box">
-  <h1>Редактирование семестра</h1>
-  <div class="grade-box">
-    <div display="inline">
-      <b>Длительность (недели):</b>
-      <input type="number" name="range" id="1" size="3">
-    </div>
-  </div>
-  <h3>Список дисциплин семестра</h3>
-  <table>
+  <h1>Отображена успеваемость для следующего студента</h1>
+  <table class="students-table">
     <tr>
-      <td><input type="checkbox" name="selectStudent" id="2"></td>
-      <td>Информатика</td>
+      <th>Фамилия</th>
+      <th>Имя</th>
+      <th>Отчество</th>
+      <th>Группа</th>
+      <th>Номер</th>
+      <th>E-mail</th>
+      <th>Дата поступления</th>
     </tr>
     <tr>
-      <td><input type="checkbox" name="selectStudent" id="3"></td>
-      <td>Системный анализ</td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" name="selectStudent" id="4"></td>
-      <td>Математический анализ</td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" name="selectStudent" id="5"></td>
-      <td>Приближенное исчисление</td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" name="selectStudent" id="6"></td>
-      <td>Дифференциальные уравнения</td>
+      <td>Мухарлямов</td>
+      <td>Рушан</td>
+      <td>Ринатович</td>
+      <td>502-1</td>
+      <td>+7 (906) 325 74 39</td>
+      <td>muhr@1ccl.ru</td>
+      <td>23.11.2022</td>
     </tr>
   </table>
-  <a href="" class="gradient-button">Сохранить</a>
+  <div class="grade-box">
+    <div display="inline">
+      <b>Выбрать семестр:</b>
+      <select size="1" name="hero[]">
+        <option value="1">Первый</option>
+        <option selected value="2">Второй</option>
+      </select>
+    </div>
+    <b>Длительность семестра: 24 недели</b>
+  </div>
+  <table class="students-table">
+    <tr>
+      <th>Дисциплина</th>
+      <th>Оценка</th>
+    </tr>
+    <tr>
+      <td>Информатика</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Системный анализ</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Математический анализ</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Приближенное исчисление</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Дифференциальные уравнения</td>
+      <td>4</td>
+    </tr>
+  </table>
+
+
+
+
+
 </div>
 <footer>
   Created by Rushan Mukharlyamov &copy 2022

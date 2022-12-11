@@ -72,5 +72,20 @@ public class DBManager implements IDBManager {
         }
 
     }
+
+    public void daletStudent(String idS){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
+            Statement stmt = con.createStatement();
+            stmt.execute(
+                    "UPDATE `student` SET `status` = '0' WHERE (`id` in("+idS+"));");
+
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 }
 

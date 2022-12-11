@@ -29,8 +29,7 @@
 </div>
 <div class="content-box">
   <a href="/disciplineCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Создать дисциплину</a>
-</div>
-<div class="content-box">
+
   <a href="/disciplineModifying" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Редактировать дисциплину</a>
 </div>
   <h3>Список дисциплин</h3>

@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -36,23 +38,23 @@
     <h3>Список дисциплин семестра</h3>
     <table>
         <tr>
-            <td><input type="checkbox" name="selectStudent" id="0"></td>
+            <td><input type="checkbox" name="selectStudent" id="1"></td>
             <td>Информатика</td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="selectStudent" id="1"></td>
+            <td><input type="checkbox" name="selectStudent" id="2"></td>
             <td>Системный анализ</td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="selectStudent" id="2"></td>
+            <td><input type="checkbox" name="selectStudent" id="3"></td>
             <td>Математический анализ</td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="selectStudent" id="3"></td>
+            <td><input type="checkbox" name="selectStudent" id="4"></td>
             <td>Приближенное исчисление</td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="selectStudent" id="4"></td>
+            <td><input type="checkbox" name="selectStudent" id="5"></td>
             <td>Дифференциальные уравнения</td>
         </tr>
     </table>
