@@ -10,5 +10,5 @@ public interface IDBManager {
     ArrayList<Disciplins> getAllDisciplins();
     void studentCreating(String firstName, String lastName, String groupName, String registrationDate);
 
-
+void daletStudent(String ids);
 }

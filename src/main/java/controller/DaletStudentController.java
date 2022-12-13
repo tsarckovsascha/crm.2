@@ -7,16 +7,16 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "daletStudentController", value = "/daletStudent")
-public class daletStudentController extends HttpServlet {
+@WebServlet(name = "DaletStudentController", value = "/daletStudent")
+public class DaletStudentController extends HttpServlet {
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String idStudent = request.getParameter("idStudent");
+        String idsStudent = request.getParameter("idsStudent");
         DBManager manager = new DBManager();
-        manager.daletStudent(idStudent);
+        manager.daletStudent(idsStudent);
 
         response.sendRedirect("/student");
     }

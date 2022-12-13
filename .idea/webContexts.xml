@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/JSP/disciplineModifying.jsp" value="file://$PROJECT_DIR$/src/main/webapp/JSP" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/JSP/disciplins.jsp" value="file://$PROJECT_DIR$/src/main/webapp/JSP" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/JSP/student.jsp" value="file://$PROJECT_DIR$/src/main/webapp/JSP" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/JSP/termModifying.jsp" value="file://$PROJECT_DIR$/src/main/webapp/JSP" />
       </map>
     </option>
