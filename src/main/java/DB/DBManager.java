@@ -2,6 +2,7 @@ package DB;
 
 import entity.Disciplins;
 import entity.Student;
+import entity.StudentProgress;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -42,7 +43,7 @@ public class DBManager implements IDBManager {
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from `discipline` where status  = 0");
+            ResultSet rs = stmt.executeQuery("select * from `disciplins` where status  = 1");
             while (rs.next()) {
                 Disciplins d = new Disciplins();
                 d.setId(rs.getInt("id"));
@@ -81,12 +82,52 @@ public class DBManager implements IDBManager {
                     "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
             Statement stmt = con.createStatement();
             stmt.execute(
-                    "UPDATE `student` SET `status` = '0' WHERE (`id` in(" + ids + "));");
+                    "UPDATE `student` SET `status` = '1' WHERE (`id` in(" + ids + "));");
             //stmt.execute("delete from `status` WHERE (`id` in(" + idS + "));");
             con.close();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
+
+    public void deleteDiscipline(String ids) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
+            Statement stmt = con.createStatement();
+            stmt.execute(
+                    "UPDATE `disciplins` SET `status` = '1' WHERE (`id` in(" + ids + "));");
+            //stmt.execute("delete from `status` WHERE (`id` in(" + idS + "));");
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public ArrayList<StudentProgress> getAllStudentProgress() {
+        ArrayList<StudentProgress> res = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from `student` where status  = 1");
+            while (rs.next()) {
+                StudentProgress s = new StudentProgress();
+                s.setId(rs.getInt("id"));
+                s.setNameDisciplins(rs.getString("name_disciplins"));
+                s.setNameMark(rs.getString("name_mark"));
+                res.add(s);
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return res;
+
+    }
+
 }
 

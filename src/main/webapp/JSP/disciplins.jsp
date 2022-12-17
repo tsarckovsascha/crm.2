@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,7 +32,9 @@
   <a href="/disciplineCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Создать дисциплину</a>
 
   <a href="/disciplineModifying" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Редактировать дисциплину</a>
-</div>
+
+  <a  href="#" class="action-button" onclick="deleteDiscipline"><img class="prefix-button" src="../resources/img/trash.png"
+                                                                 width="18px" alt="">Удалить дисциплину</a>
   <h3>Список дисциплин</h3>
   <table>
     <tr>
@@ -42,6 +45,9 @@
     </tr>
     <c:forEach items="${allDisciplins}" var="d">
       <tr>
+        <th>
+          <input type="checkbox" value="${d.id}" name="idsDiscipline" >
+        </th>
         <td>${d.name}</td>
         <td display="inline">
           <a class="editing-box-button" href=""><img src="../resources/img/pencil.png" width="18px" alt=""></a>
@@ -49,7 +55,6 @@
         </td>
       </tr>
     </c:forEach>
-
   </table>
 </div>
 <footer>
