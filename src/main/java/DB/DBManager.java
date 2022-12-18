@@ -82,7 +82,7 @@ public class DBManager implements IDBManager {
                     "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
             Statement stmt = con.createStatement();
             stmt.execute(
-                    "UPDATE `student` SET `status` = '1' WHERE (`id` in(" + ids + "));");
+                    "UPDATE `student` SET `status` = '0' WHERE (`id` in(" + ids + "));");
             //stmt.execute("delete from `status` WHERE (`id` in(" + idS + "));");
             con.close();
         } catch (Exception e) {
@@ -97,7 +97,7 @@ public class DBManager implements IDBManager {
                     "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
             Statement stmt = con.createStatement();
             stmt.execute(
-                    "UPDATE `disciplins` SET `status` = '1' WHERE (`id` in(" + ids + "));");
+                    "UPDATE `disciplins` SET `status` = '0' WHERE (`id` in(" + ids + "));");
             //stmt.execute("delete from `status` WHERE (`id` in(" + idS + "));");
             con.close();
         } catch (Exception e) {

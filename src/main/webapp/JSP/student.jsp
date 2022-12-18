@@ -48,7 +48,7 @@
         <c:forEach items="${allStudent}" var="s">
             <tr>
                 <th>
-                    <input type="checkbox" value="${s.id}" name="idsStudent" >
+                    <input type="checkbox" value="${s.id}" name="idStudent" >
                 </th>
                 <td>${s.surname}</td>
                 <td>${s.name}</td>

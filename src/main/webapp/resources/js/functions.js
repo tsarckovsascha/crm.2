@@ -17,7 +17,7 @@ function daletStudent() {
     document.getElementById('deleteStudentForm').submit();
 }
 function deleteDiscipline() {
-    var checkedCheckboxs = document.querySelectorAll('input[name=idsDiscipline]:checked')
+    var checkedCheckboxs = document.querySelectorAll('input[name=idDiscipline]:checked')
     if (checkedCheckboxs.length == 0) {
         alert("Выберете не менее одной дисциплины!!!")
         return;
