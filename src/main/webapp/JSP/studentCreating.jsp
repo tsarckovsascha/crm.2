@@ -41,15 +41,14 @@
             </tr>
             <tr>
                 <td>Группа</td>
-                <td><input type="text" name="groupName" id="3"></td>
+                <td><input type="text" name="groupName" id="2"></td>
             </tr>
             <tr>
                 <td>Дата поступления</td>
-                <td><input type="date" name="registrationDate" id="6"></td>
+                <td><input type="date" name="registrationDate" id="3"></td>
             </tr>
         </table>
 
-    <a href="" class="gradient-button">Применить</a>
         <input type="submit" value="Применить" class="gradient-button" >
     </form>
     <c:if test="${error==1}">
@@ -60,7 +59,7 @@
     </c:if>
 </div>
 <footer>
-    Created by Rushan Mukharlyamov &copy 2022
+    Created by Tsarckov Alexandr &copy 2022
 </footer>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -63,7 +64,7 @@
   </table>
 </div>
 <footer>
-  Created by Rushan Mukharlyamov &copy 2022
+  Created by Tsarckov Alexandr &copy 2022
 </footer>
 </body>
 </html>

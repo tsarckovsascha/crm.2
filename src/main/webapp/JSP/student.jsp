@@ -9,7 +9,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../resources/styeles/style.css">
-<script src="../resources/js/functions.js"></script>
+    <script src="../resources/js/functions.js"></script>
 
 </head>
 <body>
@@ -31,11 +31,18 @@
     <a href="" class="gradient-button">Контакты</a>
 </div>
 <div class="content-box">
-    <a href="/studentProgress" class="action-button">Посмотреть успеваемость</a>
+    <a href="#" class="action-button" onclick="studentProgress()"><img class="prefix-button"
+                                                                       width="18px" alt="">Посмотреть успеваемость
+        студента</a>
+    <c:if test="${RoleId==1}">
     <a href="/studentCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"
                                                           width="18px" alt="">Добавить нового студента</a>
-    <a  href="#" class="action-button" onclick="daletStudent"><img class="prefix-button" src="../resources/img/trash.png"
-                                             width="18px" alt="">Удалить студента</a>
+    </c:if>
+    <c:if test="${RoleId==1}">
+    <a href="#" class="action-button" onclick="daletStudent()"><img class="prefix-button"
+                                                                    src="../resources/img/trash.png"
+                                                                    width="18px" alt="">Удалить студента</a>
+    </c:if>
     <table class="students-table">
         <tr>
             <th></th>
@@ -48,7 +55,7 @@
         <c:forEach items="${allStudent}" var="s">
             <tr>
                 <th>
-                    <input type="checkbox" value="${s.id}" name="idStudent" >
+                    <input type="checkbox" value="${s.id}" name="idStudent">
                 </th>
                 <td>${s.surname}</td>
                 <td>${s.name}</td>
@@ -68,8 +75,11 @@
 <form action="/daletStudent" method="post" id="deleteStudentForm">
     <input type="hidden" id="deleteStudentHidden" name="idsStudent">
 </form>
+<form action="/studentProgress" method="get" id="studentProgressForm">
+    <input type="hidden" id="studentProgressHidden" name="idStudent">
+</form>
 <footer>
-    Created by Rushan Mukharlyamov &copy 2022
+    Created by Tsarckov Alexandr &copy 2022
 </footer>
 </body>
 </html>

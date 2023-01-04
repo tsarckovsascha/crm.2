@@ -17,7 +17,7 @@ function daletStudent() {
     document.getElementById('deleteStudentForm').submit();
 }
 function deleteDiscipline() {
-    var checkedCheckboxs = document.querySelectorAll('input[name=idDiscipline]:checked')
+    var checkedCheckboxs = document.querySelectorAll('input[name=idStudent]:checked')
     if (checkedCheckboxs.length == 0) {
         alert("Выберете не менее одной дисциплины!!!")
         return;
@@ -33,4 +33,17 @@ function deleteDiscipline() {
 
     document.getElementById("deleteDisciplineHidden").value = ids;
     document.getElementById('deleteDisciplineForm').submit();
+}
+function studentProgress() {
+    var checkedCheckboxs = document.querySelectorAll('input[name=idStudent]:checked')
+    if (checkedCheckboxs.length != 1 ) {
+        alert("Выберете одного студента")
+        return;
+    }
+    // "1 2 5 7" - string
+    debugger;
+    var id = checkedCheckboxs[0].value
+
+    document.getElementById("studentProgressHidden").value = id;
+    document.getElementById('studentProgressForm').submit();
 }

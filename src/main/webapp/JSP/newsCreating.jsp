@@ -30,20 +30,29 @@
 </div>
 <div class="content-box">
     <h3>Новое объявление</h3>
-    <div display="inline">
-        <b>Заголовок:</b>
-        <br>
-        <input type="text" name="name" id="0" size="34">
-    </div>
-    <p>
-        <b>Содержание</b>
-        <br>
-        <textarea name="comment" cols="40" rows="3"></textarea>
-    </p>
-    <a href="/home" class="gradient-button">Сохранить</a>
+    <form action="/newsCreating" method="post" >
+        <table>
+            <tr>
+                <td>Заголовок</td>
+                <td><input  type="text" name="header" id="0"> </td>
+            </tr>
+            <tr>
+                <td>Содержание</td>
+                <td><input  width="300px"  height="500px" type="text" name="text" id="1"  ></td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Сохранить" class="gradient-button" >
+    </form>
 </div>
+<c:if test="${error==1}">
+    <h3>
+        Поля не должны быть пустыми
+    </h3>
+
+</c:if>
 <footer>
-    Created by Rushan Mukharlyamov &copy 2022
+    Created by Tsarckov Alexandr &copy 2022
 </footer>
 </body>
 </html>

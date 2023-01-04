@@ -1,98 +1,87 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href= "../resources/styeles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../resources/styeles/style.css">
 </head>
 <body>
 <div class="title-box">
-  <div class="title-item">
-    <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
-  </div>
-  <div class="title-login">
-    <a href="" class="gradient-button-leftside">Войти</a>
-    <a href="" class="gradient-button-rightside">Регистрация</a>
-  </div>
+    <div class="title-item">
+        <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+    </div>
+    <div class="title-login">
+        <a href="" class="gradient-button-leftside">Войти</a>
+        <a href="" class="gradient-button-rightside">Регистрация</a>
+    </div>
 </div>
 <hr>
 <div class="navigation-box">
-  <a href="/home" class="gradient-button">Главная</a>
-  <a href="/student" class="gradient-button">Студенты</a>
-  <a href="/disciplins" class="gradient-button">Дисциплины</a>
-  <a href="/term" class="gradient-button">Семестры</a>
-  <a href="" class="gradient-button">Контакты</a>
+    <a href="/home" class="gradient-button">Главная</a>
+    <a href="/student" class="gradient-button">Студенты</a>
+    <a href="/disciplins" class="gradient-button">Дисциплины</a>
+    <a href="/term" class="gradient-button">Семестры</a>
+    <a href="" class="gradient-button">Контакты</a>
 </div>
 <div class="content-box">
-  <h1>Отображена успеваемость для следующего студента</h1>
-  <table class="students-table">
-    <tr>
-      <th>Фамилия</th>
-      <th>Имя</th>
-      <th>Отчество</th>
-      <th>Группа</th>
-      <th>Номер</th>
-      <th>E-mail</th>
-      <th>Дата поступления</th>
-    </tr>
-    <tr>
-      <td>Мухарлямов</td>
-      <td>Рушан</td>
-      <td>Ринатович</td>
-      <td>502-1</td>
-      <td>+7 (906) 325 74 39</td>
-      <td>muhr@1ccl.ru</td>
-      <td>23.11.2022</td>
-    </tr>
-  </table>
-  <div class="grade-box">
-    <div display="inline">
-      <b>Выбрать семестр:</b>
-      <select size="1" name="hero[]">
-        <option value="1">Первый</option>
-        <option selected value="2">Второй</option>
-      </select>
-    </div>
-    <b>Длительность семестра: 24 недели</b>
-  </div>
-  <table class="students-table">
-    <tr>
-      <th>Дисциплина</th>
-      <th>Оценка</th>
-    </tr>
-    <tr>
-      <td>Информатика</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>Системный анализ</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td>Математический анализ</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Приближенное исчисление</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>Дифференциальные уравнения</td>
-      <td>4</td>
-    </tr>
-  </table>
+    <h1>Отображена успеваемость для следующего студента</h1>
 
+    <table class="students-table">
+        <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Группа</th>
+            <th>Дата поступления</th>
+        </tr>
+        <tr>
+            <td>${student.surname}</td>
+            <td>${student.name}</td>
+            <td>${student.group}</td>
+            <td>${student.group}</td>
+            <td>${student.datr_enter}</td>
+        </tr>
+    </table>
+    <c:if test="${teremNull != '1' }"></c:if>
+    <form action="/studentProgress" method="get" id="studentProgressForm">
+        <input type="hidden" name="idStudent" value="${student.id}">
+        <div class="grade-box">
+            <div display="inline">
+                <b>Выбрать семестр:</b>
+                <select name="selectId" onchange="document.getElementById('studentProgressForm').submit()">
+                    <c:forEach items="${allTerms}" var="t">
+                        <option
+                                <c:if test="${t eq term}">selected</c:if>
+                                value="${t.id}">${t.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <b>Длительность семестра: ${term.duration}</b>
+            <b>Среднея оценка : ${avaradeaMark}</b>
+        </div>
+        <table class="students-table">
 
-
-
-
+            <tr>
+                <th>Дисциплина</th>
+                <th>Оценка</th>
+            </tr>
+            <c:forEach items="${DisciplinMark}" var="dm">
+                <tr>
+                    <th>${dm.name}</th>
+                    <th>${dm.mark}</th>
+                </tr>
+            </c:forEach>
+        </table>
+    </form>
+    <c:if test="${teremNull != '1' }"></c:if>
+<h2>у данного студента отсутвуют семестры</h2>
 </div>
 <footer>
-  Created by Rushan Mukharlyamov &copy 2022
+    Created by Tsarckov Alexandr &copy 2022
 </footer>
 </body>
 </html>

@@ -61,7 +61,7 @@
   <a href="" class="gradient-button">Сохранить</a>
 </div>
 <footer>
-  Created by Rushan Mukharlyamov &copy 2022
+  Created by Tsarckov Alexandr &copy 2022
 </footer>
 </body>
 </html>

@@ -33,7 +33,7 @@
 
   <a href="/disciplineModifying" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Редактировать дисциплину</a>
 
-  <a  href="#" class="action-button" onclick="deleteDiscipline"><img class="prefix-button" src="../resources/img/trash.png"
+  <a  href="#" class="action-button" onclick="deleteDiscipline()"><img class="prefix-button" src="../resources/img/trash.png"
                                                                  width="18px" alt="">Удалить дисциплину</a>
   <h3>Список дисциплин</h3>
   <table>
@@ -58,7 +58,7 @@
   </table>
 </div>
 <footer>
-  Created by Rushan Mukharlyamov &copy 2022
+  Created by Tsarckov Alexandr &copy 2022
 </footer>
 </body>
 </html>
