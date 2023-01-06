@@ -223,20 +223,19 @@ public class DBManager implements IDBManager {
 
     @Override
     public ArrayList<Role> getAllRole() {
-        ArrayList<Student> res = new ArrayList<>();
+        ArrayList<Role> res = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from `student` where status  = 1");
+            ResultSet rs = stmt.executeQuery("select * from `role` where status  = 1");
             while (rs.next()) {
-                Student s = new Student();
+                Role s = new Role();
                 s.setId(rs.getInt("id"));
-                s.setSurname(rs.getString("surname"));
                 s.setName(rs.getString("name"));
-                s.setGroup(rs.getString("group"));
-                s.setDatr_enter(rs.getDate("datr_enter"));
+                s.setStatus(rs.getString("status"));
+
                 res.add(s);
             }
             con.close();
@@ -247,20 +246,21 @@ public class DBManager implements IDBManager {
     }
 
     @Override
-    public ArrayList<User> gwtAllUser() {
+    public ArrayList<User> getAllUser() {
         ArrayList<User> res = new ArrayList<User>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from `role` where status  = 1");
+            ResultSet rs = stmt.executeQuery("select * from `user` where status  = 1");
             while (rs.next()) {
                 User s = new User();
                 s.setLogin(rs.getString("surname"));
                 s.setPassword(rs.getString("password"));
-                s.setGroup(rs.getString("group"));
-                s.setDatr_enter(rs.getDate("datr_enter"));
+                s.setFirstName(rs.getString("firstName"));
+                s.setLastName(rs.getString("lastName"));
+                s.setStatus(rs.getInt("status"));
                 res.add(s);
             }
             con.close();
@@ -279,7 +279,7 @@ public class DBManager implements IDBManager {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from user u \n" +
                     "join user_role ur on u.id = ur.id_user\n" +
-                    "where login = '"+login+"' and password = '"+password+"' and ur.id_role = '"+ur.id_role+"';");
+                    "where login = '"+login+"' and password = '"+password+"' and ur.idrole = "+idRole+";" );
             while (rs.next()) {
                 return true;
             }

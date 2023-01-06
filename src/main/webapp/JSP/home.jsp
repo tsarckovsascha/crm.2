@@ -32,9 +32,12 @@
     <a href="/term" class="gradient-button">Семестры</a>
     <a href="" class="gradient-button">Контакты</a>
 </div>
+<c:if test="${RoleId==1}">
 <div class="grade-box">
     <a href="/newsCreating" class="action-button" ><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Добавить объявление</a>
 </div>
+</c:if>
+
 <c:forEach items="${AllNews}" var="n">
 <div class="content-box">
     <div class="inline-box">

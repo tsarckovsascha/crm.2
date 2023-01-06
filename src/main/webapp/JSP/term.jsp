@@ -15,10 +15,12 @@
   <div class="title-item">
     <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
   </div>
-  <div class="title-login">
-    <a href="" class="gradient-button-leftside">Войти</a>
-    <a href="" class="gradient-button-rightside">Регистрация</a>
-  </div>
+  <c:if test="${isLogin!=1}">
+    <div class="title-login">
+      <a href="" class="gradient-button-leftside">Войти</a>
+      <a href="" class="gradient-button-rightside">Регистрация</a>
+    </div>
+  </c:if>
 </div>
 <hr>
 <div class="navigation-box">
@@ -40,9 +42,11 @@
     </div>
     <b>Длительность семестра: 24 недели</b>
   </div>
+  <c:if test="${RoleId==1}">
   <a href="/termCreating" class="action-button"><img class="prefix-button" src="../resources/img/add.png"  width="18px" alt="">Создать семестр</a>
   <a href="termModifying" class="action-button">Изменить текущий семестр</a>
   <a href="" class="action-button"><img class="prefix-button" src="../resources/img/trash.png"  width="18px" alt="">Удалить текущий семестр</a>
+  </c:if>
   <h3>Список дисциплин семестра</h3>
   <table>
     <tr>

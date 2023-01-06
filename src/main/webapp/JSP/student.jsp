@@ -17,10 +17,12 @@
     <div class="title-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
     </div>
-    <div class="title-login">
-        <a href="" class="gradient-button-leftside">Войти</a>
-        <a href="" class="gradient-button-rightside">Регистрация</a>
-    </div>
+    <c:if test="${isLogin!=1}">
+        <div class="title-login">
+            <a href="" class="gradient-button-leftside">Войти</a>
+            <a href="" class="gradient-button-rightside">Регистрация</a>
+        </div>
+    </c:if>
 </div>
 <hr>
 <div class="navigation-box">
@@ -37,8 +39,7 @@
     <c:if test="${RoleId==1}">
     <a href="/studentCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"
                                                           width="18px" alt="">Добавить нового студента</a>
-    </c:if>
-    <c:if test="${RoleId==1}">
+
     <a href="#" class="action-button" onclick="daletStudent()"><img class="prefix-button"
                                                                     src="../resources/img/trash.png"
                                                                     width="18px" alt="">Удалить студента</a>

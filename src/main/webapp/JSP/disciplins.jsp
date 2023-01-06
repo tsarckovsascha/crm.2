@@ -15,10 +15,12 @@
   <div class="title-item">
     <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
   </div>
-  <div class="title-login">
-    <a href="" class="gradient-button-leftside">Войти</a>
-    <a href="" class="gradient-button-rightside">Регистрация</a>
-  </div>
+  <c:if test="${isLogin!=1}">
+    <div class="title-login">
+      <a href="" class="gradient-button-leftside">Войти</a>
+      <a href="" class="gradient-button-rightside">Регистрация</a>
+    </div>
+  </c:if>
 </div>
 <hr>
 <div class="navigation-box">
@@ -28,6 +30,7 @@
   <a href="/term" class="gradient-button">Семестры</a>
   <a href="" class="gradient-button">Контакты</a>
 </div>
+<c:if test="${RoleId==1}">
 <div class="content-box">
   <a href="/disciplineCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Создать дисциплину</a>
 
@@ -35,6 +38,8 @@
 
   <a  href="#" class="action-button" onclick="deleteDiscipline()"><img class="prefix-button" src="../resources/img/trash.png"
                                                                  width="18px" alt="">Удалить дисциплину</a>
+</div>
+</c:if>
   <h3>Список дисциплин</h3>
   <table>
     <tr>

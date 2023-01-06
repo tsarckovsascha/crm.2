@@ -14,10 +14,12 @@
     <div class="title-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
     </div>
-    <div class="title-login">
-        <a href="" class="gradient-button-leftside">Войти</a>
-        <a href="" class="gradient-button-rightside">Регистрация</a>
-    </div>
+    <c:if test="${isLogin!=1}">
+        <div class="title-login">
+            <a href="" class="gradient-button-leftside">Войти</a>
+            <a href="" class="gradient-button-rightside">Регистрация</a>
+        </div>
+    </c:if>
 </div>
 <hr>
 

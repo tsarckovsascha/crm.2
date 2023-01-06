@@ -26,25 +26,30 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getParameter("login");
-        request.getParameter("password");
-        request.getParameter("rolId");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        String rolId = request.getParameter("rolId");
 
         DBManager manager = new DBManager();
         ArrayList<Role> allRole = manager.getAllRole();
 
-        if (login.isEmpty() || passord.isEmpty() || roleId.isEmpty()) {
+
+
+        if (login.isEmpty() || password.isEmpty() || rolId.isEmpty()) {
             request.setAttribute("errorEmpty", 1);
             request.setAttribute("login", login);
-            request.setAttribute("passord", passord);
-            request.setAttribute("rolId", rolId);
+            request.setAttribute("password", password);
+            request.setAttribute("allRole", allRole);
 
             request.getRequestDispatcher("JSP/login.jsp").forward(request, response);
 
 
-            if (manager.isLogin(login, passord, rolId)) {
+            if (manager.isLogin(login, password, rolId)) {
 
                 request.getSession().setAttribute("isLogin", 1);
+                request.getSession().setAttribute("RoleId", 1);
+                request.getSession().setAttribute("RoleName", 1);
+                request.getSession().setAttribute("Name", 1);
                 response.sendRedirect("JSP/home.jsp");
             } else {
 
@@ -55,3 +60,4 @@ public class LoginController extends HttpServlet {
             }
         }
     }
+}

@@ -27,19 +27,22 @@
       </tr>
       <tr>
         <td>Пароль</td>
-        <td><input type="text" name="password"  ></td>
+        <td><input type="password" name="password"  ></td>
       </tr>
     </table>
     <tr>
       <td>Роль</td>
+      <td>
       <select name="rolId" >">
         <c:forEach items="${allRole}" var="t">
           <option value="${t.id}">${t.name}</option>
         </c:forEach>
       </select>
+      </td>
     </tr>
-
+    <tr>
     <input type="submit" value="Войти" class="gradient-button" >
+    </tr>
   </form>
   <c:if test="${errorEmpty==1}">
     <h3>Поля не должны быть пустыми</h3>

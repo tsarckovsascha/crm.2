@@ -27,7 +27,7 @@ public interface IDBManager {
 
     ArrayList<Role> getAllRole();
 
-    ArrayList<User> gwtAllUser();
+    ArrayList<User> getAllUser();
 
     boolean isLogin(String login, String password, String idRole);
 }
