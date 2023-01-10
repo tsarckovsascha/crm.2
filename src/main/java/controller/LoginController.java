@@ -35,7 +35,6 @@ public class LoginController extends HttpServlet {
         ArrayList<Role> allRole = manager.getAllRole();
 
 
-
         if (login.isEmpty() || password.isEmpty() || RoleId.isEmpty()) {
             request.setAttribute("errorEmpty", 1);
             request.setAttribute("login", login);
@@ -46,23 +45,23 @@ public class LoginController extends HttpServlet {
         }
 
 
-            if (manager.isLogin(login, password, RoleId)) {
-                UserRole userFull = manager.getUserFull(login, RoleId);
+        if (manager.isLogin(login, password, RoleId)) {
+            UserRole userFull = manager.getUserFull(login, RoleId);
 
-                request.getSession().setAttribute("isLogin", 1);
-                request.getSession().setAttribute("RoleId", RoleId);
-                request.getSession().setAttribute("RoleName", userFull.getName());
-                request.getSession().setAttribute("FirstName", userFull.getFirstName());
-                request.getSession().setAttribute("LastName", userFull.getLastName());
+            request.getSession().setAttribute("isLogin", 1);
+            request.getSession().setAttribute("RoleId", RoleId);
+            request.getSession().setAttribute("RoleName", userFull.getName());
+            request.getSession().setAttribute("FirstName", userFull.getFirstName());
+            request.getSession().setAttribute("LastName", userFull.getLastName());
 
-                response.sendRedirect("/home");
-            } else {
+            response.sendRedirect("/home");
+        } else {
 
-                request.setAttribute("errorLogin", 1);
-                request.setAttribute("allRole", allRole);
-                request.getRequestDispatcher("JSP/login.jsp").forward(request, response);
+            request.setAttribute("errorLogin", 1);
+            request.setAttribute("allRole", allRole);
+            request.getRequestDispatcher("JSP/login.jsp").forward(request, response);
 
-            }
         }
     }
+}
 
