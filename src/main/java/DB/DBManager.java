@@ -229,7 +229,7 @@ public class DBManager implements IDBManager {
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from `role` where status  = 1");
+            ResultSet rs = stmt.executeQuery("select * from role where status  = 1;");
             while (rs.next()) {
                 Role s = new Role();
                 s.setId(rs.getInt("id"));
@@ -247,7 +247,7 @@ public class DBManager implements IDBManager {
 
     @Override
     public ArrayList<User> getAllUser() {
-        ArrayList<User> res = new ArrayList<User>();
+        ArrayList<User> res = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
@@ -271,15 +271,15 @@ public class DBManager implements IDBManager {
     }
 
     @Override
-    public boolean isLogin(String login, String password, String idRole) {
+    public boolean isLogin(String login, String password, String RoleId) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from user u \n" +
-                    "join user_role ur on u.id = ur.id_user\n" +
-                    "where login = '"+login+"' and password = '"+password+"' and ur.idrole = "+idRole+";" );
+                    "join user_role ur on u.id = ur.iduser\n" +
+                    "where login = '" + login + "' and password = '" + password + "' and ur.idrole = " + RoleId + ";");
             while (rs.next()) {
                 return true;
             }
@@ -290,6 +290,90 @@ public class DBManager implements IDBManager {
         return false;
     }
 
+    @Override
+    public UserRole getUserFull(String login, String RoleId) {
+        UserRole res = new UserRole();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select u.id id_us, firstName,lastName,r.id id_r, r.name\n" +
+                    "from user u\n" +
+                    "join user_role ur on u.id = ur.iduser\n" +
+                    "join role r on r.id = ur.idrole\n" +
+                    "where u.login = \""+login+"\" and r.id = " + RoleId );
+            while (rs.next()) {
+                UserRole s = new UserRole();
+                s.setId(rs.getInt("id_us"));
+                s.setFirstName(rs.getString("firstName"));
+                s.setLastName(rs.getString("lastName"));
+                s.setIdRole(rs.getInt("id_r"));
+                s.setName(rs.getString("name"));
+
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return res;
+    }
+
+    @Override
+    public void deletNews(String idn) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
+            Statement stmt = con.createStatement();
+            stmt.execute(
+                    "UPDATE `news` SET `status` = '0' WHERE (`id` in(" + idn + "));");
+            //stmt.execute("delete from `status` WHERE (`id` in(" + idS + "));");
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public void DisciplinCreating(String name ) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
+            Statement stmt = con.createStatement();
+            stmt.execute
+                    ("INSERT INTO `disciplins` (`name`) " +
+                            "VALUES ('" + name + "')");
+
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public ArrayList<Term_disciplin> getAllDisciplinsTerm(String id_term, String id_disciplins) {
+        ArrayList<Term_disciplin> res = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/crm_students_4", "root", "admin");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from `term_disciplin` ");
+            while (rs.next()) {
+                Term_disciplin d = new Term_disciplin();
+                d.setId(rs.getInt("id"));
+                d.setId_term(rs.getString("id_term"));
+                d.setId_disciplins(rs.getString("id_disciplins"));
+                res.add(d);
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return res;
+    }
 }
 
 

@@ -33,7 +33,7 @@
     <tr>
       <td>Роль</td>
       <td>
-      <select name="rolId" >">
+      <select name="RoleId" >">
         <c:forEach items="${allRole}" var="t">
           <option value="${t.id}">${t.name}</option>
         </c:forEach>
@@ -50,6 +50,7 @@
   <c:if test="${errorLogin==1}">
     <h3>Пользователь с таким Логином и паролем, и ролью не найдены</h3>
   </c:if>
+
 
 </div>
 <footer>

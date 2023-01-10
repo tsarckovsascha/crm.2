@@ -9,11 +9,13 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href= "../resources/styeles/style.css">
+  <script src="../resources/js/functions.js"></script>
 </head>
 <body>
 <div class="title-box">
   <div class="title-item">
     <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+    <a href="/logout" class ="gradient-button">Logout</a>
   </div>
   <c:if test="${isLogin!=1}">
     <div class="title-login">
@@ -37,11 +39,10 @@
   <a href="/disciplineModifying" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Редактировать дисциплину</a>
 
   <a  href="#" class="action-button" onclick="deleteDiscipline()"><img class="prefix-button" src="../resources/img/trash.png"
-                                                                 width="18px" alt="">Удалить дисциплину</a>
-</div>
+                                                                 width="18px" >Удалить дисциплину</a>
 </c:if>
   <h3>Список дисциплин</h3>
-  <table>
+<table class="disciplins-table">
     <tr>
       <td display="inline">
       <th>Наименование</th>
@@ -54,14 +55,16 @@
           <input type="checkbox" value="${d.id}" name="idDiscipline" >
         </th>
         <td>${d.name}</td>
-        <td display="inline">
-          <a class="editing-box-button" href=""><img src="../resources/img/pencil.png" width="18px" alt=""></a>
-          <a class="trashing-box-button" href=""><img src="../resources/img/trash.png" width="18px" alt=""></a>
-        </td>
       </tr>
     </c:forEach>
-  </table>
+</table>
 </div>
+<form action="/deleteDiscipline" method="post" id="deleteDisciplineForm">
+  <input type="hidden" id="deleteDisciplineHidden" name="idsDiscipline">
+</form>
+<form action="/disciplineModifying" method="get" id="studentProgressForm">
+  <input type="hidden" id="studentProgressHidden" name="idStudent">
+</form>
 <footer>
   Created by Tsarckov Alexandr &copy 2022
 </footer>

@@ -9,19 +9,21 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href= "../resources/styeles/style.css">
-
+    <link rel="stylesheet" href="../resources/styeles/style.css">
+    <script src="../resources/js/functions.js"></script>
 </head>
 <body>
 <div class="title-box">
     <div class="title-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+        <a href="/logout" class="gradient-button">Logout</a>
+        <p> ${RoleName} ${FirstName} ${LastName} </p>
     </div>
     <c:if test="${isLogin!=1}">
-    <div class="title-login">
-        <a href="" class="gradient-button-leftside">Войти</a>
-        <a href="" class="gradient-button-rightside">Регистрация</a>
-    </div>
+        <div class="title-login">
+            <a href="" class="gradient-button-leftside">Войти</a>
+            <a href="" class="gradient-button-rightside">Регистрация</a>
+        </div>
     </c:if>
 </div>
 <hr>
@@ -33,24 +35,33 @@
     <a href="" class="gradient-button">Контакты</a>
 </div>
 <c:if test="${RoleId==1}">
-<div class="grade-box">
-    <a href="/newsCreating" class="action-button" ><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Добавить объявление</a>
-</div>
-</c:if>
-
-<c:forEach items="${AllNews}" var="n">
 <div class="content-box">
-    <div class="inline-box">
+    <a href="/newsCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"
+                                                       width="18px" alt="">Добавить объявление</a>
+
+
+    <a href="#" class="action-button" onclick="deletNews()"><img class="prefix-button"
+                                                                 src="../resources/img/trash.png"
+                                                                 width="18px">Удалить объявление</a>
+    </c:if>
+
+    <c:forEach items="${AllNews}" var="n">
+    <div class="content-box">
+        <div class="inline-box">
             <h1 display="inline">
-                ${n.header}
-            <a class="editing-box-button" href=""><img src="../resources/img/pencil.png"  width="18px" alt=""></a>
-            <a class="trashing-box-button" href=""><img src="../resources/img/trash.png" width="18px" alt=""></a>
+                <th>
+                    <input type="checkbox" value="${n.id}" name="idNews">
+                </th>
+                    ${n.header}
             </h1>
-        <td></td>
+        </div>
+        <td> ${n.text} </td>
     </div>
-    <td>   ${n.text}    </td>
 </div>
 </c:forEach>
+<form action="/deletNews" method="post" id="deletNewsForm">
+    <input type="hidden" id="deletNewsHidden" name="idsNews">
+</form>
 <footer>
     Created by Tsarckov Alexandr &copy 2022
 </footer>

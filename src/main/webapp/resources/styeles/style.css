@@ -163,6 +163,17 @@ footer{
     border-collapse: inherit;
 }
 
+.disciplins-table{
+    width: 98%;
+    font-size: 20px;
+    text-align: left;
+    margin: 1%;
+    padding: 1%;
+    border: 1px solid black;
+    border-radius: 10px;
+    border-collapse: inherit;
+}
+
 .action-button{
     text-decoration: none;
     display: inline-block;

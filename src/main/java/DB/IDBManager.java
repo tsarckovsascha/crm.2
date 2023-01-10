@@ -30,5 +30,14 @@ public interface IDBManager {
     ArrayList<User> getAllUser();
 
     boolean isLogin(String login, String password, String idRole);
+
+    UserRole getUserFull(String login, String RoleId);
+
+    void deletNews(String idn);
+
+    void DisciplinCreating(String name);
+
+    ArrayList<Term_disciplin> getAllDisciplinsTerm(String id_term, String id_disciplins);
+
 }
 

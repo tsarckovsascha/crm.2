@@ -2,25 +2,28 @@ package entity;
 
 import java.util.Objects;
 
-public class User {
+public class UserRole {
+
     private int id;
     private String login;
     private String password;
     private String firstName;
     private String lastName;
 
-    private int status;
+    private int idRole;
+    private String name;
 
-    public User() {
+    public UserRole() {
     }
 
-    public User(int id, String login, String password, String firstName, String lastName, int status) {
+    public UserRole(int id, String login, String password, String firstName, String lastName, int idRole, String name) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.status = status;
+        this.idRole = idRole;
+        this.name = name;
     }
 
     public int getId() {
@@ -63,36 +66,45 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getStatus() {
-        return status;
+    public int getIdRole() {
+        return idRole;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setIdRole(int idRole) {
+        this.idRole = idRole;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id == user.id && status == user.status && Objects.equals(login, user.login) && Objects.equals(password, user.password) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName);
+        UserRole userRole = (UserRole) o;
+        return id == userRole.id && idRole == userRole.idRole && Objects.equals(login, userRole.login) && Objects.equals(password, userRole.password) && Objects.equals(firstName, userRole.firstName) && Objects.equals(lastName, userRole.lastName) && Objects.equals(name, userRole.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, password, firstName, lastName, status);
+        return Objects.hash(id, login, password, firstName, lastName, idRole, name);
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserRole{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", status=" + status +
+                ", idRole=" + idRole +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

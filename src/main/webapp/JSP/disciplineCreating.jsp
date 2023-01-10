@@ -13,6 +13,7 @@
 <div class="title-box">
     <div class="title-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+        <a href="/logout" class ="gradient-button">Logout</a>
     </div>
     <c:if test="${isLogin!=1}">
         <div class="title-login">
@@ -31,15 +32,18 @@
 </div>
 <div class="content-box">
     <h3>Создание новой дисциплины</h3>
+    <form action="/disciplineCreating" method="post" >
     <div display="inline">
         <b>Наименование:</b>
-        <input type="text" name="range" id="1" size="34">
+        <input type="text" name="name"  size="34">
     </div>
-    <div display="inline">
-        <b>Длительность (семестров):</b>
-        <input type="number" name="range" id="2" size="2">
-    </div>
-    <a href="" class="gradient-button">Сохранить</a>
+    <input type="submit" value="Сохранить" class="gradient-button" >
+    </form>
+    <c:if test="${error==1}">
+        <h3>
+            Поля не должны быть пустыми
+        </h3>
+    </c:if>
 </div>
 <footer>
     Created by Tsarckov Alexandr &copy 2022

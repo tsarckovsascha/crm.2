@@ -13,6 +13,7 @@
 <div class="title-box">
     <div class="title-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+        <a href="/logout" class ="gradient-button">Logout</a>
     </div>
     <c:if test="${isLogin!=1}">
         <div class="title-login">
@@ -42,22 +43,6 @@
         <tr>
             <td><input type="checkbox" name="selectStudent" id="1"></td>
             <td>Информатика</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="selectStudent" id="2"></td>
-            <td>Системный анализ</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="selectStudent" id="3"></td>
-            <td>Математический анализ</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="selectStudent" id="4"></td>
-            <td>Приближенное исчисление</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="selectStudent" id="5"></td>
-            <td>Дифференциальные уравнения</td>
         </tr>
     </table>
     <a href="" class="gradient-button">Сохранить</a>

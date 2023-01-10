@@ -13,8 +13,4 @@ public class DisciplineModifyingController extends HttpServlet {
         request.getRequestDispatcher("JSP/disciplineModifying.jsp").forward(request,response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

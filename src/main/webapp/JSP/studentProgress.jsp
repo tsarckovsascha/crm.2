@@ -14,6 +14,7 @@
 <div class="title-box">
     <div class="title-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+        <a href="/logout" class ="gradient-button">Logout</a>
     </div>
     <c:if test="${isLogin!=1}">
         <div class="title-login">
@@ -48,7 +49,7 @@
             <td>${student.datr_enter}</td>
         </tr>
     </table>
-    <c:if test="${teremNull != '1' }"></c:if>
+    <c:if test="${termNull != '1' }"></c:if>
     <form action="/studentProgress" method="get" id="studentProgressForm">
         <input type="hidden" name="idStudent" value="${student.id}">
         <div class="grade-box">
@@ -79,8 +80,9 @@
             </c:forEach>
         </table>
     </form>
-    <c:if test="${teremNull != '1' }"></c:if>
+    <c:if test="${teremNull == '1' }">
 <h2>у данного студента отсутвуют семестры</h2>
+    </c:if>
 </div>
 <footer>
     Created by Tsarckov Alexandr &copy 2022

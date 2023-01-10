@@ -13,6 +13,7 @@
 <div class="title-box">
     <div class="title-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+        <a href="/logout" class ="gradient-button">Logout</a>
     </div>
     <c:if test="${isLogin!=1}">
         <div class="title-login">
@@ -51,7 +52,6 @@
     <h3>
         Поля не должны быть пустыми
     </h3>
-
 </c:if>
 <footer>
     Created by Tsarckov Alexandr &copy 2022

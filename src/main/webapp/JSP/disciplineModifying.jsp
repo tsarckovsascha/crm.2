@@ -13,6 +13,7 @@
 <div class="title-box">
   <div class="title-item">
     <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+    <a href="/logout" class ="gradient-button">Logout</a>
   </div>
   <c:if test="${isLogin!=1}">
     <div class="title-login">
@@ -34,10 +35,6 @@
   <div display="inline">
     <b>Наименование:</b>
     <input type="text" name="range" id="1" size="34">
-  </div>
-  <div display="inline">
-    <b>Длительность (семестров):</b>
-    <input type="number" name="range" id="2" size="2">
   </div>
   <a href="" class="gradient-button">Сохранить</a>
 </div>

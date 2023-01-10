@@ -16,6 +16,7 @@
 <div class="title-box">
     <div class="title-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+        <a href="/logout" class="gradient-button">Logout</a>
     </div>
     <c:if test="${isLogin!=1}">
         <div class="title-login">
@@ -37,12 +38,13 @@
                                                                        width="18px" alt="">Посмотреть успеваемость
         студента</a>
     <c:if test="${RoleId==1}">
-    <a href="/studentCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"
-                                                          width="18px" alt="">Добавить нового студента</a>
 
-    <a href="#" class="action-button" onclick="daletStudent()"><img class="prefix-button"
-                                                                    src="../resources/img/trash.png"
-                                                                    width="18px" alt="">Удалить студента</a>
+        <a href="/studentCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"
+                                                              width="18px" alt="">Добавить нового студента</a>
+
+        <a href="#" class="action-button" onclick="daletStudent()"><img class="prefix-button"
+                                                                        src="../resources/img/trash.png"
+                                                                        width="18px" alt="">Удалить студента</a>
     </c:if>
     <table class="students-table">
         <tr>
@@ -62,12 +64,6 @@
                 <td>${s.name}</td>
                 <td>${s.group}</td>
                 <td><fmt:formatDate pattern="dd/MM/yyyy" value="${s.datr_enter}"/>
-                </td>
-                <td display="inline">
-                    <a class="editing-box-button" href=""><img src="../resources/img/pencil.png" width="18px"
-                                                               alt=""></a>
-                    <a class="trashing-box-button" href=""><img src="../resources/img/trash.png" width="18px"
-                                                                alt=""></a>
                 </td>
             </tr>
         </c:forEach>
