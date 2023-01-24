@@ -19,12 +19,9 @@
         <a href="/logout" class="gradient-button">Logout</a>
         <p> ${RoleName} ${FirstName} ${LastName} </p>
     </div>
-    <c:if test="${isLogin!=1}">
         <div class="title-login">
-            <a href="" class="gradient-button-leftside">Войти</a>
-            <a href="" class="gradient-button-rightside">Регистрация</a>
+            <a href="/registration" class="gradient-button-rightside">Регистрация</a>
         </div>
-    </c:if>
 </div>
 <hr>
 <div class="navigation-box">
@@ -35,32 +32,28 @@
     <a href="" class="gradient-button">Контакты</a>
 </div>
 <c:if test="${RoleId==1}">
-<div class="content-box">
+<div>
     <a href="/newsCreating" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"
                                                        width="18px" alt="">Добавить объявление</a>
-
 
     <a href="#" class="action-button" onclick="deletNews()"><img class="prefix-button"
                                                                  src="../resources/img/trash.png"
                                                                  width="18px">Удалить объявление</a>
     </c:if>
-
-    <c:forEach items="${AllNews}" var="n">
+</div>
+<c:forEach items="${AllNews}" var="n">
     <div class="content-box">
-        <div class="inline-box">
             <h1 display="inline">
                 <th>
                     <input type="checkbox" value="${n.id}" name="idNews">
                 </th>
                     ${n.header}
             </h1>
-        </div>
         <td> ${n.text} </td>
     </div>
-</div>
 </c:forEach>
 <form action="/deletNews" method="post" id="deletNewsForm">
-    <input type="hidden" id="deletNewsHidden" name="idsNews">
+    <input type="hidden" id="deletNewsHidden" name="idnNews">
 </form>
 <footer>
     Created by Tsarckov Alexandr &copy 2022

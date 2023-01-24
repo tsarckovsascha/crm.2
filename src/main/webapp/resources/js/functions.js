@@ -62,6 +62,7 @@ function deletNews() {
     }
     idn = idn.substring(0, idn.length - 1);
 
+
     debugger;
     document.getElementById("deletNewsHidden").value = idn;
     document.getElementById('deletNewsForm').submit();

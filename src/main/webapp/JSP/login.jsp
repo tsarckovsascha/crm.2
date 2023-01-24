@@ -14,7 +14,9 @@
   <div class="title-item">
     <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
   </div>
-
+  <div class="title-login">
+    <a href="/registration" class="gradient-button-rightside">Регистрация</a>
+  </div>
 </div>
 <hr>
 <div class="content-box">
@@ -33,7 +35,7 @@
     <tr>
       <td>Роль</td>
       <td>
-      <select name="RoleId" >">
+      <select name="RoleId" >
         <c:forEach items="${allRole}" var="t">
           <option value="${t.id}">${t.name}</option>
         </c:forEach>

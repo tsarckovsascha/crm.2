@@ -13,9 +13,9 @@ public class DeletNewsController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idsNews = request.getParameter("idsNews");
+        String idnNews = request.getParameter("idnNews");
         DBManager manager = new DBManager();
-        manager.deletNews(idsNews);
+        manager.deletNews(idnNews);
 
         response.sendRedirect("/home");
     }
