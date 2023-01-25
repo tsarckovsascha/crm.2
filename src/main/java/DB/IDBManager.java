@@ -39,7 +39,7 @@ public interface IDBManager {
 
     ArrayList<Term_disciplin> getAllDisciplinsTerm(String id_term, String id_disciplins);
 
-    void registration(String login, String password, String firstName, String lastName);
+    void registration(String login, String password, String firstName, String lastName, String iduser, String idrole, String id);
 
 }
 

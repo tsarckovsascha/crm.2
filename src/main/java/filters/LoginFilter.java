@@ -34,10 +34,7 @@ public class LoginFilter implements Filter {
             resp.sendRedirect("/login");
             return;
         }
-        if (uri.equals("/registration")) {
-            resp.sendRedirect("/registration");
-            return;
-        }
+
     }
 
     @Override

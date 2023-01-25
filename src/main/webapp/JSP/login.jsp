@@ -3,60 +3,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../resources/styeles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../resources/styeles/style.css">
 </head>
 <body>
 <div class="title-box">
-  <div class="title-item">
-    <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
-  </div>
-  <div class="title-login">
-    <a href="/registration" class="gradient-button-rightside">Регистрация</a>
-  </div>
+    <div class="title-item">
+        <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
+    </div>
+    <div class="title-login">
+        <a href="/registration" class="gradient-button-rightside">Регистрация</a>
+    </div>
 </div>
 <hr>
 <div class="content-box">
-  <h1>Вход в систему</h1>
-  <form action="/login" method="post" >
-    <table>
-      <tr>
-        <td>Логин</td>
-        <td><input width = "200px" type="text" name="login"> </td>
-      </tr>
-      <tr>
-        <td>Пароль</td>
-        <td><input type="password" name="password"  ></td>
-      </tr>
-    </table>
-    <tr>
-      <td>Роль</td>
-      <td>
-      <select name="RoleId" >
-        <c:forEach items="${allRole}" var="t">
-          <option value="${t.id}">${t.name}</option>
-        </c:forEach>
-      </select>
-      </td>
-    </tr>
-    <tr>
-    <input type="submit" value="Войти" class="gradient-button" >
-    </tr>
-  </form>
-  <c:if test="${errorEmpty==1}">
-    <h3>Поля не должны быть пустыми</h3>
-  </c:if>
-  <c:if test="${errorLogin==1}">
-    <h3>Пользователь с таким Логином и паролем, и ролью не найдены</h3>
-  </c:if>
+    <h1>Вход в систему</h1>
+    <form action="/login" method="post">
+        <table>
+            <tr>
+                <td>Логин</td>
+                <td><input width="200px" type="text" name="login"></td>
+            </tr>
+            <tr>
+                <td>Пароль</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+        </table>
+        <tr>
+            <td>Роль</td>
+            <td>
+                <select name="RoleId">
+
+                    <c:forEach items="${allRole}" var="t">
+                        <option value="${t.id}">${t.name}</option>
+                    </c:forEach>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <input type="submit" value="Войти" class="gradient-button">
+        </tr>
+    </form>
+    <c:if test="${errorEmpty==1}">
+        <h3>Поля не должны быть пустыми</h3>
+    </c:if>
+    <c:if test="${errorLogin==1}">
+        <h3>Пользователь с таким Логином и паролем, и ролью не найдены</h3>
+    </c:if>
 
 
 </div>
 <footer>
-  Created by Tsarckov Alexandr &copy 2022
+    Created by Tsarckov Alexandr &copy 2022
 </footer>
 </body>
 </html>

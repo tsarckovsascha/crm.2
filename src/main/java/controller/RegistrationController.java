@@ -23,6 +23,9 @@ public class RegistrationController extends HttpServlet {
         String lastName = request.getParameter("lastName");
         String login = request.getParameter("login");
         String password = request.getParameter("password");
+        String id = request.getParameter("id");
+        String iduser = request.getParameter("iduser");
+        String idrole = request.getParameter("idrole");
 
         if (firstName.isEmpty() || lastName.isEmpty() || login.isEmpty() || password.isEmpty()) {
             request.setAttribute("error", 1);
@@ -30,13 +33,15 @@ public class RegistrationController extends HttpServlet {
             request.setAttribute("lastName", lastName);
             request.setAttribute("login", login);
             request.setAttribute("password", password);
-
+            request.setAttribute("id", id);
+            request.setAttribute("iduser", iduser);
+            request.setAttribute("idrole", idrole);
 
             request.getRequestDispatcher("JSP/registration.jsp").forward(request, response);
 
         }
         DBManager manager = new DBManager();
-        manager.registration(firstName, lastName, login, password);
+        manager.registration(firstName, lastName, login, password,  iduser,  idrole, id);
 
         response.sendRedirect("/login");
     }

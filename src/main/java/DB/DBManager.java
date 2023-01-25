@@ -375,7 +375,7 @@ public class DBManager implements IDBManager {
     }
 
     @Override
-    public void registration(String firstName, String lastName, String login, String password) {
+    public void registration(String firstName, String lastName, String login, String password, String iduser, String idrole, String id) {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -390,9 +390,19 @@ public class DBManager implements IDBManager {
         } catch (Exception e) {
             System.out.println(e);
         }
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
+            Statement stmt = con.createStatement();
+            stmt.execute
+                    (" INSERT INTO `user_role` (`iduser`, `idrole`) VALUES ('" + iduser + "', '3');");
+
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
-
-
 }
 
 

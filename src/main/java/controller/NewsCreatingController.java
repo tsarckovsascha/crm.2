@@ -25,7 +25,7 @@ public class NewsCreatingController extends HttpServlet {
             request.setAttribute("header", header);
             request.setAttribute("text", text);
 
-            request.getRequestDispatcher("JSP/studentCreating.jsp").forward(request, response);
+            request.getRequestDispatcher("JSP/newsCreating.jsp").forward(request, response);
 
         }
         DBManager manager = new DBManager();
