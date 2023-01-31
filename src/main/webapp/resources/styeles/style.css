@@ -20,6 +20,7 @@ body {
 }
 
 .flex-row-box{
+    background-position: right center;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -73,7 +74,6 @@ body {
     text-decoration: none;
     display: inline-block;
     color: white;
-    margin-top: 20px;
     margin-right: -2px;
     padding: 10px 20px;
     border-radius: 0px 10px 10px 0px;
@@ -275,4 +275,7 @@ footer{
 }
 .idNews{
     margin-left: 20px;
+}
+user{
+    margin: 200px 10px 20px 10px;
 }

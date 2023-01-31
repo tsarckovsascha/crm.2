@@ -14,7 +14,7 @@
 <div class="title-box">
     <div class="title-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
-        <a href="/logout" class ="gradient-button">Logout</a>
+        <a href="/logout" class="gradient-button" style="margin-left: 1050px;margin-top: 10px">Logout</a>
     </div>
     <c:if test="${isLogin!=1}">
         <div class="title-login">
@@ -29,7 +29,7 @@
     <a href="/student" class="gradient-button">Студенты</a>
     <a href="/disciplins" class="gradient-button">Дисциплины</a>
     <a href="/term" class="gradient-button">Семестры</a>
-    <a href="" class="gradient-button">Контакты</a>
+    <a href="/contacts" class="gradient-button">Контакты</a>
 </div>
 <div class="content-box">
     <h1>Отображена успеваемость для следующего студента</h1>

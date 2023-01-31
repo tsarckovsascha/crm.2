@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href= "../resources/styeles/style.css">
+    <link rel="stylesheet" href="../resources/styeles/style.css">
 </head>
 <body>
 <div class="title-box">
@@ -23,27 +23,31 @@
     </c:if>
 </div>
 <hr>
+<hr>
 <div class="navigation-box">
     <a href="/home" class="gradient-button">Главная</a>
     <a href="/student" class="gradient-button">Студенты</a>
     <a href="/disciplins" class="gradient-button">Дисциплины</a>
     <a href="/term" class="gradient-button">Семестры</a>
-    <a href="" class="gradient-button">Контакты</a>
+    <a href="/contacts" class="gradient-button">Контакты</a>
 </div>
 <div class="content-box">
-    <h3>Создание новой дисциплины</h3>
-    <form action="/disciplineCreating" method="post" >
-    <div display="inline">
-        <b>Наименование:</b>
-        <input type="text" name="name"  size="34">
-    </div>
-    <input type="submit" value="Сохранить" class="gradient-button" >
-    </form>
-    <c:if test="${error==1}">
-        <h3>
-            Поля не должны быть пустыми
-        </h3>
-    </c:if>
+    <h1 style="position: center"
+    >Информация и контакты</h1>
+    <p style="
+    font-style: oblique;
+    font-family: Georgia, Serif;
+    position: center;
+    background-position: right center;
+">Проект называется "СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ"<br>
+        Он представляет из себя сайт связанный с базой данных, где вы можете зарегестрироваться.<br>
+        Удаляя и создавая записи на стене новостей, моежете немного почуствовать себя администратором.<br>
+        (Для этого нужно ввести логин: sasha ; пароль: qwe )<br>
+        Так же можно создать свою учетную запись пользователя.<br>
+    </p>
+</div>
+<div class="flex-row-box">
+    <p>Проект разработал Царьков Александр.</p>
 </div>
 <footer>
     Created by Tsarckov Alexandr &copy 2022

@@ -9,6 +9,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/JSP/student.jsp" value="file://$PROJECT_DIR$/src/main/webapp/JSP" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/JSP/studentProgress.jsp" value="file://$PROJECT_DIR$/src/main/webapp/JSP" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/JSP/term.jsp" value="file://$PROJECT_DIR$/src/main/webapp/JSP" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/JSP/termCreating.jsp" value="file://$PROJECT_DIR$/src/main/webapp/JSP" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/JSP/termModifying.jsp" value="file://$PROJECT_DIR$/src/main/webapp/JSP" />
       </map>
     </option>

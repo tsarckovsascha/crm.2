@@ -190,7 +190,7 @@ public class DBManager implements IDBManager {
             Connection con = DriverManager.getConnection(
                     Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from `news` ");
+            ResultSet rs = stmt.executeQuery("select * from `news` where status  = 1");
             while (rs.next()) {
                 News n = new News();
                 n.setId(rs.getInt("id"));
@@ -382,22 +382,13 @@ public class DBManager implements IDBManager {
             Connection con = DriverManager.getConnection(
                     Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
             Statement stmt = con.createStatement();
-            stmt.execute
+            int i = stmt.executeUpdate
                     ("INSERT INTO `user` (`login`, `password`, `firstName`, `lastName`,`status`) " +
-                            "VALUES ('" + login + "','" + password + "','" + firstName + "','" + lastName + "','1');");
-
+                            "VALUES ('" + login + "','" + password + "','" + firstName + "','" + lastName + "','1');SELECT LAST_INSERT_ID();");
             con.close();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
-            Statement stmt = con.createStatement();
-            stmt.execute
-                    (" INSERT INTO `user_role` (`iduser`, `idrole`) VALUES ('" + iduser + "', '3');");
-
+            stmt.executeUpdate
+                    ("INSERT INTO `user_role` (`iduser`, `idrole`) " +
+                            "VALUES (' "+i+" ','3');");
             con.close();
         } catch (Exception e) {
             System.out.println(e);
