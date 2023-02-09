@@ -37,9 +37,22 @@ public interface IDBManager {
 
     void DisciplinCreating(String name);
 
-    ArrayList<Term_disciplin> getAllDisciplinsTerm(String id_term, String id_disciplins);
+    ArrayList<TermDisciplin> getAllDisciplinsTerm(String id_term, String id_disciplins);
 
-    void registration(String login, String password, String firstName, String lastName, String iduser, String idrole, String id);
+ //   void registration(String login, String password, String firstName, String lastName, String iduser, String idrole, String id);
 
+    ArrayList<Term> getTermbyId(String id);
+
+    ArrayList<TermDisciplin> getDisciplineByTerm(Term term, String idTerm);
+
+    Term getTermId(String ids);
+
+    void addUser(String login, String password, String lastName, String firstName);
+
+    void addIds(String roleId, String userId);
+
+    User getUserId(String login);
+
+    ArrayList<User> getLogins();
 }
 

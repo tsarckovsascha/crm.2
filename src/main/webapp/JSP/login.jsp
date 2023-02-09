@@ -13,8 +13,8 @@
     </style>
 </head>
 <body>
-<div class="title-box">
-    <div class="title-item">
+<div class="action-box">
+    <div class="action-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
     </div>
     <div class="title-login">
@@ -25,38 +25,42 @@
 <div class="content-box">
     <h1>Вход в систему</h1>
     <form action="/login" method="post">
-        <table>
+        <table style="margin: 0 auto">
             <tr>
                 <td>Логин</td>
-                <td><input width="200px" type="text" name="login"></td>
+                <td><input type="text" name="login"></td>
             </tr>
+            <br>
             <tr>
                 <td>Пароль</td>
                 <td><input type="password" name="password"></td>
             </tr>
+            <br>
+            <tr>
+                <td>Роль</td>
+                <td>
+                    <select name="RoleId">
+
+                        <c:forEach items="${allRole}" var="t">
+                            <option value="${t.id}">${t.name}</option>
+                        </c:forEach>
+
+                    </select>
+                </td>
+            </tr>
         </table>
-        <tr>
-            <td>Роль</td>
-            <td>
-                <select name="RoleId">
+            <tr>
+                <input type="submit" value="Войти" class="gradient-button">
+            </tr>
 
-                    <c:forEach items="${allRole}" var="t">
-                        <option value="${t.id}">${t.name}</option>
-                    </c:forEach>
-
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <input type="submit" value="Войти" class="gradient-button">
-        </tr>
     </form>
-    <c:if test="${errorEmpty==1}">
-        <h3>Поля не должны быть пустыми</h3>
-    </c:if>
-    <c:if test="${errorLogin==1}">
-        <h3>Пользователь с таким Логином и паролем, и ролью не найдены</h3>
-    </c:if>
+</div>
+<c:if test="${errorEmpty==1}">
+    <h3>Поля не должны быть пустыми</h3>
+</c:if>
+<c:if test="${errorLogin==1}">
+    <h3>Пользователь с таким Логином и паролем, и ролью не найдены</h3>
+</c:if>
 
 
 </div>

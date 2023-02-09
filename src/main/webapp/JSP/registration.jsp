@@ -22,7 +22,7 @@
 <div class="content-box">
     <h1>Регистрация</h1>
     <form action="/registration" method="post" >
-        <table>
+        <table style="margin: 0 auto">
             <tr>
                 <td>Фамилия</td>
                 <td><input width = "200px" type="text" name="firstName" > </td>
@@ -40,7 +40,6 @@
                 <td><input type="password" name="password" ></td>
             </tr>
         </table>
-
         <input type="submit" value="Зарегистрироваться" class="gradient-button-registration" >
     </form>
     <c:if test="${error==1}">

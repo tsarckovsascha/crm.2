@@ -1,7 +1,6 @@
 body {
     margin-left: 5%;
     margin-right: 5%;
-    font-family: 'Montserrat', sans-serif;
     background-image: linear-gradient(to right, #8aa9a3 0%, #9d94d9 51%, #7fd7c9 100%);
     color: aliceblue;
 }
@@ -14,17 +13,23 @@ body {
     flex-wrap: wrap;
 }
 
-
-.flex-row-item{
-    flex: auto;
+content-box-login{
+    position: center;
+    text-align: center;
+    margin: 10px;
+    padding: 1px 20px 20px 20px;
+    color: black;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #cafff6 0%, #96cce9 51%, #ffffff 100%);
 }
 
 .flex-row-box{
-    background-position: right center;
+text-align: center;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    color: black;
 }
 
 
@@ -115,6 +120,23 @@ body {
 }
 
 .content-box {
+    text-align: center;
+    margin: 10px;
+    padding: 1px 20px 20px 20px;
+    color: black;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #cafff6 0%, #96cce9 51%, #ffffff 100%);
+}
+.content-box-contacts {
+    text-align: left;
+    margin: 10px;
+    padding: 1px 20px 20px 20px;
+    color: black;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #cafff6 0%, #96cce9 51%, #ffffff 100%);
+}
+.content-box-news {
+    text-align: left;
     margin: 10px;
     padding: 1px 20px 20px 20px;
     color: black;
@@ -160,7 +182,6 @@ footer{
 
 .students-table{
     width: 98%;
-    font-size: 20px;
     text-align: left;
     margin: 1%;
     padding: 1%;
@@ -278,4 +299,8 @@ footer{
 }
 user{
     margin: 200px 10px 20px 10px;
+}
+table{
+    text-align: center;
+
 }

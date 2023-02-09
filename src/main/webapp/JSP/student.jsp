@@ -13,10 +13,10 @@
 
 </head>
 <body>
-<div class="title-box">
-    <div class="title-item">
+<div class="action-box">
+    <div class="action-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
-        <a href="/logout" class="gradient-button" style="margin-left: 1050px;margin-top: 10px">Logout</a>
+        <a href="/logout" class="gradient-button" >Logout</a>
     </div>
     <c:if test="${isLogin!=1}">
         <div class="title-login">
@@ -26,7 +26,7 @@
     </c:if>
 </div>
 <hr>
-<div class="navigation-box">
+<div class="action-box">
     <a href="/home" class="gradient-button">Главная</a>
     <a href="/student" class="gradient-button">Студенты</a>
     <a href="/disciplins" class="gradient-button">Дисциплины</a>
@@ -46,6 +46,7 @@
                                                                         src="../resources/img/trash.png"
                                                                         width="18px" alt="">Удалить студента</a>
     </c:if>
+    <div class="action-box">
     <table class="students-table">
         <tr>
             <th></th>

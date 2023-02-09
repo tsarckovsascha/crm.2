@@ -4,10 +4,7 @@ import constants.Connections;
 import entity.*;
 
 import java.sql.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class DBManager implements IDBManager {
     @Override
@@ -352,8 +349,8 @@ public class DBManager implements IDBManager {
     }
 
     @Override
-    public ArrayList<Term_disciplin> getAllDisciplinsTerm(String id_term, String id_disciplins) {
-        ArrayList<Term_disciplin> res = new ArrayList<>();
+    public ArrayList<TermDisciplin> getAllDisciplinsTerm(String id_term, String id_disciplins) {
+        ArrayList<TermDisciplin> res = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
@@ -361,7 +358,7 @@ public class DBManager implements IDBManager {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from `term_disciplin` ");
             while (rs.next()) {
-                Term_disciplin d = new Term_disciplin();
+                TermDisciplin d = new TermDisciplin();
                 d.setId(rs.getInt("id"));
                 d.setId_term(rs.getString("id_term"));
                 d.setId_disciplins(rs.getString("id_disciplins"));
@@ -374,26 +371,171 @@ public class DBManager implements IDBManager {
         return res;
     }
 
-    @Override
-    public void registration(String firstName, String lastName, String login, String password, String iduser, String idrole, String id) {
+//    @Override
+//    public void registration(String firstName, String lastName, String login, String password, String iduser, String idrole, String id) {
+//
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection(
+//                    Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
+//            Statement stmt = con.createStatement();
+//            int i = stmt.executeUpdate
+//                    ("INSERT INTO `user` (`login`, `password`, `firstName`, `lastName`,`status`,`id`) " +
+//                            "VALUES ('" + login + "','" + password + "','" + firstName + "','" + lastName + "','1', id);");
+//            int ii = stmt.executeUpdate
+//                    ("INSERT INTO `user` (`login`, `password`, `firstName`, `lastName`,`status`,`id`) " +
+//                            "VALUES ('" + login + "','" + password + "','" + firstName + "','" + lastName + "','1', id); SELECT LAST_INSERT_ID(); ");
+//            stmt.execute
+//                    ("INSERT INTO `user_role` (`iduser`, `idrole`) VALUES (" + ii + ", '3')");
+//            con.close();
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
 
+    @Override
+    public ArrayList<Term> getTermbyId(String id) {
+        ArrayList<Term> res = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
                     Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
             Statement stmt = con.createStatement();
-            int i = stmt.executeUpdate
-                    ("INSERT INTO `user` (`login`, `password`, `firstName`, `lastName`,`status`) " +
-                            "VALUES ('" + login + "','" + password + "','" + firstName + "','" + lastName + "','1');SELECT LAST_INSERT_ID();");
+            ResultSet rs = stmt.executeQuery("select distinct t.* from term t\n" +
+                    "join term_disciplin td on t.id = td.id_term;");
+            while (rs.next()) {
+                Term t = new Term();
+                t.setId((rs.getInt("id")));
+                t.setName((rs.getString("name")));
+                t.setDuration((rs.getInt("duration")));
+                res.add(t);
+            }
+            System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
             con.close();
-            stmt.executeUpdate
-                    ("INSERT INTO `user_role` (`iduser`, `idrole`) " +
-                            "VALUES (' "+i+" ','3');");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return res;
+    }
+    @Override
+    public ArrayList<TermDisciplin> getDisciplineByTerm(Term term, String idTerm) {
+        ArrayList<TermDisciplin> res = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select distinct d.name as disciplineName from term_disciplin td\n" +
+                    "join term t on td.id_term = t.id\n" +
+                    "join disciplins d on td.id_disciplins = d.id\n" +
+                    "where td.id_term = " + term.getId());
+            while (rs.next()) {
+                TermDisciplin t = new TermDisciplin();
+                t.setDisciplineName((rs.getString("disciplineName")));
+                res.add(t);
+            }
+            System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return res;
+    }
+    @Override
+    public Term getTermId(String ids) {
+        Term s = new Term();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from `term` where `id` = " + ids);
+            while (rs.next()) {
+                s.setId((rs.getInt("id")));
+                s.setName((rs.getString("name")));
+
+            }
+            System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return s;
+    }
+    @Override
+    public void addUser(String login, String password, String lastName, String firstName) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
+            Statement stmt = con.createStatement();
+            stmt.execute("INSERT INTO `user` (`login`, `password`, `firstName`, `lastName`, `status`) " +
+                    "VALUES ('" + login + "', '" + password + "', '" + firstName + "', '" + lastName + "', '1');");
             con.close();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-}
 
+    @Override
+    public void addIds(String roleId, String userId) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
+            Statement stmt = con.createStatement();
+            stmt.execute("INSERT INTO `user_role` (`iduser`, `idrole`) VALUES ('" + userId + "', 3 );");
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+
+    @Override
+    public User getUserId(String login) {
+        User res = new User();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select id , login from user \n" +
+                    "where login = '" + login + "';");
+            while (rs.next()) {
+
+                res.setId((rs.getInt("id")));
+                res.setLogin((rs.getString("login")));
+
+            }
+            System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return res;
+    }
+
+    @Override
+    public ArrayList<User> getLogins() {
+        ArrayList<User> res = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    Connections.CONNECTIONS_URL, Connections.CONNECTIONS_USER, Connections.CONNECTIONS_PASSWORD);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select `login` from `user`");
+            while (rs.next()) {
+                User t = new User();
+                t.setLogin((rs.getString("login")));
+                res.add(t);
+            }
+            System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return res;
+    }
+}
 

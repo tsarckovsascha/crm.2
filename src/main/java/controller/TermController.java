@@ -1,7 +1,9 @@
 package controller;
 
 import DB.DBManager;
-import entity.Disciplins;
+import entity.Term;
+import entity.TermDisciplin;
+import funfactions.Functions;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -12,15 +14,29 @@ import java.util.ArrayList;
 @WebServlet(name = "TermController", value = "/term")
 public class TermController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         DBManager manager = new DBManager();
-        ArrayList<Disciplins> allDisciplins = manager.getAllDisciplins();
-        request.setAttribute("allDisciplins", allDisciplins);
-        request.getRequestDispatcher("JSP/term.jsp").forward(request,response);
-    }
+        Term term = new Term();
+        //1. получить id Term
+        String idTerm = req.getParameter("idTerm");
+        String selectedId = req.getParameter("selectedId");
+        Term termId = manager.getTermId(idTerm);
+        // 2. получить все семестры
+        ArrayList<Term> allTerm = manager.getTermbyId(idTerm);
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (selectedId == null) {
+            term = allTerm.get(0);
+        } else {
+            term = Functions.getTermbyID(allTerm, selectedId);
+        }
 
+        ArrayList <TermDisciplin> termDisciplin = manager.getDisciplineByTerm(term, idTerm);
+
+        req.setAttribute("termId", termId);
+        req.setAttribute("allTerm", allTerm);
+        req.setAttribute("term", term);
+        req.setAttribute("termDisciplin", termDisciplin);
+
+        req.getRequestDispatcher("JSP/term.jsp").forward(req, resp);
     }
 }

@@ -11,20 +11,20 @@
     <link rel="stylesheet" href="../resources/styeles/style.css">
 </head>
 <body>
-<div class="title-box">
-    <div class="title-item">
+<div class="action-box">
+    <div class="action-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
-        <a href="/logout" class="gradient-button" style="margin-left: 1050px;margin-top: 10px">Logout</a>
+        <a href="/logout" class="gradient-button" >Logout</a>
     </div>
     <c:if test="${isLogin!=1}">
-        <div class="title-login">
+        <div class="action-login">
             <a href="" class="gradient-button-leftside">Войти</a>
             <a href="" class="gradient-button-rightside">Регистрация</a>
         </div>
     </c:if>
 </div>
 <hr>
-<div class="navigation-box">
+<div class="action-box">
     <a href="/home" class="gradient-button">Главная</a>
     <a href="/student" class="gradient-button">Студенты</a>
     <a href="/disciplins" class="gradient-button">Дисциплины</a>
@@ -42,36 +42,46 @@
                                               alt="">Удалить текущий семестр</a>
         </c:if>
         <h3>Список дисциплин семестра</h3>
-        <div display="inline">
-            <div class="grade-box">
-                <div display="inline">
-                    <b>Выбрать семестр:</b>
-                    <select name="selectId" onchange="document.getElementById('term_disciplinForm').submit()">
-                        <c:forEach items="${allTerms}" var="t">
-                            <option
-                                    <c:if test="${t eq term}">selected</c:if>
-                                    value="${t.id}">${t.name}</option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <b>Длительность семестра: ${term.duration}</b>
-            </div>
-            <table class="disciplins-table">
-                <tr>
-                    <td display="inline">
-                    <th>Наименование</th>
-                    <th></th>
-                    </td>
-                </tr>
-                <c:forEach items="${allDisciplins}" var="d">
+        <div class="content-box">
+            <h3>Cеместры:</h3>
+            <form action="/term" method="get" id="termForm">
+                <table class="students-table">
                     <tr>
-                        <th>
-                            <input type="checkbox" value="${d.id}" name="idDiscipline">
-                        </th>
-                        <td>${d.name}</td>
+                        <td>
+                            <input type="hidden" name="idTerm" value="${termId.id}">
+                            <div class="grade-box">
+                                <div display="inline">
+                                    <b>Выбрать семестр:</b>
+                                    <select name="selectedId"
+                                            onchange="document.getElementById('termForm').submit();">
+                                        <c:forEach items="${allTerm}" var="t">
+                                            <option
+                                                    <c:if test="${t eq term}">selected</c:if>
+                                                    value="${t.id}">
+                                                    ${t.name}</option>
+
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <b>Длительность семестра: ${term.duration}</b>
+                            </div>
+                        </td>
                     </tr>
-                </c:forEach>
-            </table>
+                </table>
+                <table class="students-table">
+                    <tr>
+                        <th>Дисциплины:</th>
+                    </tr>
+                    <c:forEach items="${termDisciplin}" var="t">
+                        <tr>
+                            <td>${t.disciplineName}</td>
+                        </tr>
+
+                    </c:forEach>
+                </table>
+            </form>
+
+
         </div>
         <footer>
             Created by Tsarckov Alexandr &copy 2022

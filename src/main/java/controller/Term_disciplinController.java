@@ -1,10 +1,7 @@
 package controller;
 
 import DB.DBManager;
-import entity.DisciplinMark;
-import entity.Student;
 import entity.Term;
-import entity.Term_disciplin;
 import funfactions.Functions;
 
 import javax.servlet.*;
@@ -20,12 +17,13 @@ public class Term_disciplinController extends HttpServlet {
 
         DBManager manager = new DBManager();
         Term term = new Term();
-        String id_term = request.getParameter("id_term");
+        String idTerm = request.getParameter("id_term");
         String selectId = request.getParameter("selectId");
-        ArrayList<Term> allTerms = manager.getAllTermsByIdStudent(id_term);
+        ArrayList<Term> terms = manager.getTermbyId(idTerm);
+        ArrayList<Term> allTerms = manager.getTermbyId(idTerm);
         if (allTerms.isEmpty()) {
 
-            request.setAttribute("id_term", id_term);
+            request.setAttribute("id_term", idTerm);
 
             request.setAttribute("teremNull", 1);
 
@@ -33,15 +31,14 @@ public class Term_disciplinController extends HttpServlet {
 
 
         } else {
-
-
             if (selectId == null) {
                 term = allTerms.get(0);
             } else {
-                term = Functions.getAllStudentProgress(allTerms, selectId);
+                term = Functions.getTermbyID(allTerms, selectId);
             }
 
-            request.setAttribute("id_term", id_term);
+
+            request.setAttribute("id_term", term);
             request.setAttribute("allTerms", allTerms);
             request.setAttribute("term", term);
 

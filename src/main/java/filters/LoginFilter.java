@@ -20,9 +20,7 @@ public class LoginFilter implements Filter {
         Integer isLogin = (Integer) req.getSession().getAttribute("isLogin");
         String uri = req.getRequestURI();
 
-        if (isLogin == null && uri.endsWith("/registration")) {
-            filterChain.doFilter(servletRequest, servletResponse);
-        }
+
         if (isLogin != null && isLogin == 1 && uri.endsWith("/login")) {
             resp.sendRedirect("/home");
             return;
@@ -30,10 +28,10 @@ public class LoginFilter implements Filter {
         if (isLogin != null && isLogin == 1 && !uri.endsWith("/login")) {
             filterChain.doFilter(servletRequest, servletResponse);
         }
-        if (isLogin == null && uri.endsWith("/login")) {
+        if (isLogin == null && uri.endsWith("/login") || uri.endsWith("/registration")) {
             filterChain.doFilter(servletRequest, servletResponse);
         }
-        if (isLogin == null && !uri.endsWith("/login")) {
+        if (isLogin == null && !uri.endsWith("/login") && !uri.endsWith("/registration")) {
             resp.sendRedirect("/login");
             return;
         }

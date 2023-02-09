@@ -16,15 +16,15 @@
     <script src="../resources/js/functions.js"></script>
 </head>
 <body>
-<div class="title-box">
-    <div class="title-item">
+<div class="action-box">
+    <div class="action-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
-        <a href="/logout" class="gradient-button" style="margin-left: 1050px;margin-top: 10px">Logout</a>
-        <p name="user" style="margin-left: 800px; margin-top: -45px;"> ${RoleName} ${FirstName} ${LastName} </p>
+        <a href="/logout" class="gradient-button" >Logout</a>
+        <p name="user"> ${RoleName} ${FirstName} ${LastName} </p>
     </div>
 </div>
 <hr>
-<div class="navigation-box">
+<div class="action-box">
     <a href="/home" class="gradient-button">Главная</a>
     <a href="/student" class="gradient-button">Студенты</a>
     <a href="/disciplins" class="gradient-button">Дисциплины</a>
@@ -41,7 +41,7 @@
                                                                  width="18px">Удалить объявление</a>
     </c:if>
 </div>
-<div class="content-box">
+<div class="content-box-news">
     <c:forEach items="${AllNews}" var="n">
         <h1 display="inline">
             <th>

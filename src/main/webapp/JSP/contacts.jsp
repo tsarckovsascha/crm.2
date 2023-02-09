@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="../resources/styeles/style.css">
 </head>
 <body>
-<div class="title-box">
-    <div class="title-item">
+<div class="action-box">
+    <div class="action-item">
         <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
-        <a href="/logout" class="gradient-button" style="margin-left: 1050px;margin-top: 10px">Logout</a>
+        <a href="/logout" class="gradient-button" >Logout</a>
     </div>
     <c:if test="${isLogin!=1}">
         <div class="title-login">
@@ -24,21 +24,21 @@
 </div>
 <hr>
 <hr>
-<div class="navigation-box">
+<div class="action-box">
     <a href="/home" class="gradient-button">Главная</a>
     <a href="/student" class="gradient-button">Студенты</a>
     <a href="/disciplins" class="gradient-button">Дисциплины</a>
     <a href="/term" class="gradient-button">Семестры</a>
     <a href="/contacts" class="gradient-button">Контакты</a>
 </div>
-<div class="content-box">
+<div class="content-box-contacts">
     <h1 style="position: center"
     >Информация и контакты</h1>
     <p style="
     font-style: oblique;
     font-family: Georgia, Serif;
     position: center;
-    background-position: right center;
+    text-align: left;
 ">Проект называется "СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ"<br>
         Он представляет из себя сайт связанный с базой данных, где вы можете зарегестрироваться.<br>
         Удаляя и создавая записи на стене новостей, моежете немного почуствовать себя администратором.<br>
@@ -46,7 +46,7 @@
         Так же можно создать свою учетную запись пользователя.<br>
     </p>
 </div>
-<div class="flex-row-box">
+<div class="content-box" >
     <p>Проект разработал Царьков Александр.</p>
 </div>
 <footer>

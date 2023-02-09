@@ -12,20 +12,20 @@
   <script src="../resources/js/functions.js"></script>
 </head>
 <body>
-<div class="title-box">
-  <div class="title-item">
+<div class="action-box">
+  <div class="action-item">
     <h1>СИСТЕМА УПРАВЛЕНИЯ СТУДЕНТАМИ И ИХ УСПЕВАЕМОСТЬЮ</h1>
-    <a href="/logout" class="gradient-button" style="margin-left: 1050px;margin-top: 10px">Logout</a>
+    <a href="/logout" class="gradient-button">Logout</a>
   </div>
   <c:if test="${isLogin!=1}">
-    <div class="title-login">
+    <div class="action-login">
       <a href="" class="gradient-button-leftside">Войти</a>
       <a href="" class="gradient-button-rightside">Регистрация</a>
     </div>
   </c:if>
 </div>
 <hr>
-<div class="navigation-box">
+<div class="action-box">
   <a href="/home" class="gradient-button">Главная</a>
   <a href="/student" class="gradient-button">Студенты</a>
   <a href="/disciplins" class="gradient-button">Дисциплины</a>
@@ -39,10 +39,12 @@
   <a href="/disciplineModifying" class="action-button"><img class="prefix-button" src="../resources/img/pencil.png"  width="18px" alt="">Редактировать дисциплину</a>
 
   <a  href="#" class="action-button" onclick="deleteDiscipline()"><img class="prefix-button" src="../resources/img/trash.png"
-                                                                 width="18px" >Удалить дисциплину</a>
+                                                                 width="18px" >Удалить дисциплину</a>.
+  </div>
 </c:if>
+<div class="content-box">
   <h3>Список дисциплин</h3>
-<table class="disciplins-table">
+<table class="students-table">
     <tr>
       <td display="inline">
       <th>Наименование</th>
